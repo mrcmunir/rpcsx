@@ -41,7 +41,7 @@ else()
 		if (APPLE)
 			add_compile_options(-march=armv8.4-a)
 		elseif(NOT ANDROID)
-			add_compile_options(-march=armv8.1-a)
+			add_compile_options(-march=armv8-a)
 		endif()
 	elseif(COMPILER_X86)
 		# Some compilers will set both X86 and ARM, so check explicitly for ARM first
