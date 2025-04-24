@@ -101,8 +101,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: |
           github.event_name != 'pull_request' &&
-          github.ref == 'refs/heads/master' &&
-          github.repository == 'RPCSX/rpcsx'
+          github.ref == 'refs/heads/armv8.0_test' &&
+          github.repository == 'mrcmunir/rpcsx'
         with:
           prerelease: false
           make_latest: true
@@ -210,8 +210,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: |
           github.event_name != 'pull_request' &&
-          github.ref == 'refs/heads/master' &&
-          github.repository == 'RPCSX/rpcsx'
+          github.ref == 'refs/heads/armv8.0_test' &&
+          github.repository == 'mrcmunir/rpcsx'
         with:
           prerelease: false
           make_latest: true
