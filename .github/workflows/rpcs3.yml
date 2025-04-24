@@ -106,7 +106,7 @@ jobs:
         with:
           prerelease: false
           make_latest: true
-          repository: RPCSX/rpcsx-build
+          repository: mrcmunir/rpcsx
           token: ${{ secrets.BUILD_TOKEN }}
           tag_name: v${{ env.RX_VERSION }}-${{ env.RX_SHA }}
           files: RPCS3-Qt-UI-Linux-${{ runner.arch }}-${{ matrix.compiler }}.AppImage
