@@ -378,7 +378,12 @@ endif()
 add_subdirectory(miniupnp EXCLUDE_FROM_ALL)
 
 # RTMIDI
-add_subdirectory(rtmidi EXCLUDE_FROM_ALL)
+if(NOT ANDROID)
+	add_subdirectory(rtmidi EXCLUDE_FROM_ALL)
+else()
+	add_library(rtmidi INTERFACE)
+	target_compile_definitions(rtmidi INTERFACE WITHOUT_RTMIDI)
+endif()
 
 # OPENCV
 add_subdirectory(opencv EXCLUDE_FROM_ALL)
@@ -392,12 +397,6 @@ if(USE_SYSTEM_LIBUSB)
 	add_library(3rdparty::libusb ALIAS usb-1.0-shared)
 else()
 	add_library(3rdparty::libusb ALIAS usb-1.0-static)
-endif()
-
-if (ANDROID AND CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64")
-	add_subdirectory(libadrenotools)
-else()
-	add_library(adrenotools INTERFACE)
 endif()
 
 add_library(3rdparty::zlib ALIAS 3rdparty_zlib)
@@ -425,4 +424,3 @@ add_library(3rdparty::rtmidi ALIAS rtmidi)
 add_library(3rdparty::opencv ALIAS ${OPENCV_TARGET})
 add_library(3rdparty::fusion ALIAS Fusion)
 add_library(3rdparty::json ALIAS 3rdparty_json)
-add_library(3rdparty::adrenotools ALIAS adrenotools)
